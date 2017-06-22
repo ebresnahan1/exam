@@ -44,7 +44,38 @@
         </style>
 
         <script type="text/javascript">
+            function convert() {
+                var myConverter = document.getElementById("form1")
+                var k = myConverter.kil.value; 
+                var m = myConverter.mil.value; 
 
+                if (k == "" && m == ""){
+                    alert("You must enter number value!"); 
+                }
+                else if (k != "") {
+                    if (isNAN(k)){
+                        alert("you should enter number value!"); 
+                    }
+                    else {
+                        k = parseFloat(m);
+                        m = k * 2 / 3;
+                        m = m.toFixed(1); 
+                        myConverter.mil.value = m;   
+                    }
+                }
+                else {
+                    if (isNAN(m)){
+                        alert("you should enter number value!"); 
+                    }
+                    else {
+                        m = parseFloat(k);
+                        k = m * 3 / 2;
+                        k = k.toFixed(1); 
+                        myConverter.kil.value = k;  
+                    }
+                }
+                return false; 
+            }
         </script>
     </head>
 
@@ -63,8 +94,8 @@
         </p>
         <hr />
         <h2> Convert and Smile </h2>
-        <form method="post">
-            <p>
+        <form id = "form1" action="" method="post">
+            <p id=p1>
 
                 Kilometers: <input type="text" name="km" size="10" /> Miles: <input type="text" name="m" size="10" />
 
